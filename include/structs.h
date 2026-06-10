@@ -1,5 +1,6 @@
 #define TOTAL_THEMES 2
 //enums
+
 typedef enum {
     COLOR_NIL,
     COLOR_PRIMARY,
@@ -8,7 +9,7 @@ typedef enum {
     COLOR_SHADOW,
     COLOR_ACCENT,
     COLOR_COUNT
-} Colors;
+} Color;
 typedef enum{
     STATE_NORMAL,
     STATE_HOVERED,
@@ -16,8 +17,9 @@ typedef enum{
 }ObjectState;
 
 // structs
+
 typedef struct {
-    uint8_t r, g, b;
+    uint8_t r, g, b,a;
 } Pixel;
 
 typedef struct{
