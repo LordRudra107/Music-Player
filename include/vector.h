@@ -15,7 +15,7 @@ typedef struct{
 void vectorInit(Vector* v,int elementSize){
     v->size=0;
     v->capacity=8;
-    v->element_size=size;
+    v->element_size=elementSize;
     v->begin=malloc(v->element_size*v->capacity);
 }
 void pushBack(Vector* v,void *element){
@@ -33,4 +33,6 @@ void* elementAt(Vector* v,int index){
     }
     return  ((char*)v->begin+index*v->element_size);
 }
-void vectorDestroy(){}
+void vectorDestroy(Vector* v){
+    free(v->begin);
+}

@@ -9,12 +9,20 @@ typedef enum {
     COLOR_SHADOW,
     COLOR_ACCENT,
     COLOR_COUNT
-} Color;
+}Color;
+
 typedef enum{
     STATE_NORMAL,
     STATE_HOVERED,
-    STATE_CLICKED
+    STATE_CLICKED,
+    STATE_SELECTED
 }ObjectState;
+
+typedef enum{
+    BUTTON_PLAY,
+    BUTTON_STOP
+    BUTTON_COUNT
+}ButtonID;
 
 // structs
 
@@ -22,22 +30,26 @@ typedef struct {
     uint8_t r, g, b,a;
 } Pixel;
 
-typedef struct{
-    SDL_Texture* tex_normal;
-    SDL_Texture* tex_hovered;
-    SDL_Texture* tex_clicked;
-}ButtonStateTectures;
-struct Theme{
+
+typedef struct {
     Pixel primary;
-    Pixel secondry;
+    Pixel secondary;
     Pixel highlight;
     Pixel shadow;
     Pixel accent;   
-}
-struct Button{
+    Pixel nil;   
+}Theme;
+
+typedef struct{
+    SDL_Texture* tex_normal;
+    SDL_Texture* tex_light;
+    SDL_Texture* tex_dark;
+}StateTextures;
+    
+typedef struct {
     uint16_t ID;
-    Color *data;
+    Color data;
     SDL_FRect rec;
-    ButtonStateTextures bst[TOTAL_THEMES];
+    StateTextures st[TOTAL_THEMES];
     ObjectState state;
-}
+}Button;
