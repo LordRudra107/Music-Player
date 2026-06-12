@@ -1,4 +1,4 @@
-Color template1[32*32]={
+Color template_ButtonPlay[32*32]={
 COLOR_NIL,
 COLOR_NIL,
 COLOR_NIL,
@@ -1022,6 +1022,6 @@ COLOR_NIL,
 COLOR_NIL,
 COLOR_NIL,
 COLOR_NIL,
-COLOR_NIL,
+COLOR_NIL
 
 };

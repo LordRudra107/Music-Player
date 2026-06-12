@@ -1,6 +1,4 @@
-#define TOTAL_THEMES 2
 //enums
-
 typedef enum {
     COLOR_NIL,
     COLOR_PRIMARY,
@@ -20,16 +18,26 @@ typedef enum{
 
 typedef enum{
     BUTTON_PLAY,
-    BUTTON_STOP
+    BUTTON_STOP,
     BUTTON_COUNT
 }ButtonID;
+
+typedef enum{
+    TEXTURE_NORMAL,
+    TEXTURE_LIGHT,
+    TEXTURE_DARK
+}TextureType;
+
+typedef enum{
+    THEME_DARK,
+    THEME_COUNT
+}ThemeType;
 
 // structs
 
 typedef struct {
     uint8_t r, g, b,a;
 } Pixel;
-
 
 typedef struct {
     Pixel primary;
@@ -47,9 +55,11 @@ typedef struct{
 }StateTextures;
     
 typedef struct {
-    uint16_t ID;
-    Color data;
+    Color* template;
+    size_t width;
+    size_t height;
     SDL_FRect rec;
-    StateTextures st[TOTAL_THEMES];
+    SDL_Texture* activeTexture;
+    StateTextures st[THEME_COUNT];
     ObjectState state;
 }Button;
